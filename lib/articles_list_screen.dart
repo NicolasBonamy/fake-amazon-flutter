@@ -39,37 +39,61 @@ class ArticlesList extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        value.title,
-                                        maxLines: 2,
-                                        style: const TextStyle(
-                                            fontFamily: 'Amazon', fontSize: 15),
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                      Text(
-                                        value.description,
-                                        maxLines: 2,
-                                        style: const TextStyle(
-                                            fontFamily: 'Amazon', fontSize: 15),
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                      RatingBarIndicator(
-                                        rating: value.rating.rate,
-                                        itemBuilder: (context, index) =>
-                                            const Icon(
-                                          Icons.star,
-                                          color: Colors.amber,
-                                        ),
-                                        itemCount: 5,
-                                        itemSize: 18.0,
-                                        direction: Axis.horizontal,
-                                      ),
-                                      Text(
-                                          '${NumberFormat("####0.00", "fr_FR").format(value.price)}€',
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                                        child: Text(
+                                          value.title,
+                                          maxLines: 2,
                                           style: const TextStyle(
-                                              fontSize: 25)
-                                          //overflow: TextOverflow.ellipsis,
-                                          ),
+                                              fontFamily: 'Amazon', fontSize: 15),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                      // Text(
+                                      //   value.description,
+                                      //   maxLines: 2,
+                                      //   style: const TextStyle(
+                                      //       fontFamily: 'Amazon', fontSize: 15),
+                                      //   overflow: TextOverflow.ellipsis,
+                                      // ),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                                        child: Row(
+                                          children: [
+                                            RatingBarIndicator(
+                                              rating: value.rating.rate,
+                                              itemBuilder: (context, index) =>
+                                                  const Icon(
+                                                Icons.star,
+                                                color: Colors.amber,
+                                              ),
+                                              itemCount: 5,
+                                              itemSize: 18.0,
+                                              direction: Axis.horizontal,
+                                            ),
+                                            Text(value.rating.count.toString())
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                                        child: Text(
+                                            '${NumberFormat("####0.00", "fr_FR").format(value.price)}€',
+                                            style: const TextStyle(
+                                                fontSize: 25)
+                                            //overflow: TextOverflow.ellipsis,
+                                            ),
+                                      ),
+                                      
+                                      (value.category.length < 13) ? Row(
+                                        children: [
+                                          Image.asset("assets/images/prime.png", width: 45),
+                                          const Padding(
+                                            padding: EdgeInsets.only(left: 3.0),
+                                            child: Text("GRATUIT Livraison en 1 jour", style: TextStyle(fontSize: 12, letterSpacing: -0.5),),
+                                          )
+                                        ],
+                                      ):Container()
                                     ],
                                   ),
                                 ),

@@ -76,7 +76,7 @@ class ArticleScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                   onPressed: (() {
-                    print('test');
+                    print('clic pour ajout au panier');
                   }),
                   style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.fromLTRB(10, 12, 10, 12),
@@ -92,7 +92,7 @@ class ArticleScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                   onPressed: (() {
-                    print('test');
+                    print('clic pour achat immédiat');
                   }),
                   style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.fromLTRB(10, 12, 10, 12),
